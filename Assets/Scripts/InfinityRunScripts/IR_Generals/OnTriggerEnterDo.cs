@@ -1,0 +1,31 @@
+using UnityEngine;
+using UnityEngine.Events;
+
+public class OnTriggerEnterDo : MonoBehaviour
+{
+    [SerializeField] private UnityEvent playerActions;
+    [SerializeField] private UnityEvent dangerActions;
+    [SerializeField] private UnityEvent limitsActions;
+    [SerializeField] private UnityEvent generalActions;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerActions.Invoke();
+        }
+        else if (collision.CompareTag("Danger"))
+        {
+            dangerActions.Invoke();
+        }
+        else if (collision.CompareTag("Limits"))
+        {
+            limitsActions.Invoke();
+        }
+        else
+        {
+            generalActions.Invoke();
+        }
+
+    }
+}
