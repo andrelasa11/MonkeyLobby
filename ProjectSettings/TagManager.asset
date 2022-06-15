@@ -6,15 +6,17 @@ TagManager:
   tags:
   - Limits
   - Danger
+  - Platform
+  - Coin
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Invencible
   - Water
   - UI
   - Limits
-  - 
+  - Player
   - 
   - 
   - 

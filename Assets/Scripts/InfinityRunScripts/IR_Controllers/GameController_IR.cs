@@ -9,19 +9,7 @@ public class GameController_IR : MonoBehaviour
 
     private static GameController_IR instance;
 
-    public static GameController_IR Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                GameObject go = new GameObject("GameManager");
-                go.AddComponent<GameController_IR>();
-            }
-
-            return instance;
-        }
-    }
+    public static GameController_IR Instance { get { return instance; } }
 
     #endregion
 

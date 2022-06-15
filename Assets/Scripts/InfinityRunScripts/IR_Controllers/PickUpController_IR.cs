@@ -13,6 +13,7 @@ public class PickUpController_IR : MonoBehaviour
 
     //private
     private float randomPickUp;
+    private Quaternion spawnRotation = new Quaternion(0, 0, 0, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class PickUpController_IR : MonoBehaviour
 
             if (randomPickUp <= pickupChance)
             {
-                Instantiate(coinPrefab, coin, false);
+                Instantiate(coinPrefab, coin.transform.position, spawnRotation);
             }
         }
     }
