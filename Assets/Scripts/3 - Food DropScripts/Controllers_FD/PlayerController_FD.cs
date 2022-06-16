@@ -1,20 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController_IJ : MonoBehaviour
+public class PlayerController_FD : MonoBehaviour
 {
+
     [Header("Configuration")]
     [SerializeField] private float speed;
-    [SerializeField] private float jumpForce;
 
     [Header("Dependencies")]
     [SerializeField] private Rigidbody2D rigidBody;
 
     //private
     private float horizontalMove;
-
 
     private void FixedUpdate()
     {
@@ -24,18 +21,5 @@ public class PlayerController_IJ : MonoBehaviour
     public void OnMovement(InputAction.CallbackContext value)
     {
         horizontalMove = value.ReadValue<Vector2>().x;
-    }
-
-    public void DoJump()
-    {
-        if(rigidBody.velocity.y < -1.5f)
-        {
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
-        }        
-    }
-
-    public void OnDeath()
-    {
-        GameController_IJ.Instance.SetPlayerLives(-1);
     }
 }
