@@ -8,12 +8,12 @@ public class Mover_IJ : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidBody.velocity = (Vector2.down * GameController_IJ.Instance.groundSpeed);
+        rigidBody.velocity = (Vector2.down * GameController_IJ.Instance.platformSpeed);
     }
 
     public void FallDown()
     {
-        rigidBody.velocity = (Vector2.down * (GameController_IJ.Instance.groundSpeed * 2));
+        rigidBody.velocity = (Vector2.down * (GameController_IJ.Instance.platformSpeed * 2));
     }
 
 }

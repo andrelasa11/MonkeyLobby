@@ -32,4 +32,9 @@ public class FoodController_FD : MonoBehaviour
         GameController_FD.Instance.SetScore(scorePoints);
     }
 
+    public void DecreaseLife()
+    {
+        GameController_FD.Instance.SetPlayerLives(-1);
+    }
+
 }

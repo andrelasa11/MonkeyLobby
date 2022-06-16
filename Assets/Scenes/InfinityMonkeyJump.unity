@@ -1184,6 +1184,7 @@ MonoBehaviour:
   respawnTime: 0
   distancePerSecond: 2.5
   playerGravity: 3
+  cadenceToDecrease: 0.2
   score: 0
   distance: 0
   playerLives: 3
@@ -1196,7 +1197,7 @@ MonoBehaviour:
   distanceUI: {fileID: 223392387}
   scoreUI: {fileID: 72816196}
   lifeUI: {fileID: 1469970815}
-  groundSpeed: 0
+  platformSpeed: 0
 --- !u!4 &489903387
 Transform:
   m_ObjectHideFlags: 0

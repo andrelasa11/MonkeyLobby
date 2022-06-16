@@ -22,6 +22,9 @@ public class GameController_IJ : MonoBehaviour
     [SerializeField] private float distancePerSecond;
     [SerializeField] private float playerGravity;
 
+    [Header("Cadence Configuration")]
+    [SerializeField] private float cadenceToDecrease;
+
     [Header("Data")]
     public int score;
     public float distance;
@@ -40,8 +43,8 @@ public class GameController_IJ : MonoBehaviour
     [SerializeField] private ScoreUI scoreUI;
     [SerializeField] private LifeUI lifeUI;
 
-    // Ground Properties
-    [HideInInspector] public float groundSpeed;
+    // Platform Properties
+    [HideInInspector] public float platformSpeed;
     
     //private
     private Vector3 startPosition;
@@ -111,21 +114,21 @@ public class GameController_IJ : MonoBehaviour
 
     private IEnumerator StageCoroutine()
     {
-        groundSpeed = initialPlatformSpeed;
+        platformSpeed = initialPlatformSpeed;
 
         yield return new WaitForSeconds(timeToSecondStage);
 
         autoScroller.scrollSpeed *= 2;
-        groundSpeed = secondStageSpeed;
+        platformSpeed = secondStageSpeed;
         distancePerSecond += 1.5f;
-        spawnerController.cadence -= 0.2f;
+        spawnerController.cadence -= cadenceToDecrease;
 
         yield return new WaitForSeconds(timeToThirdStage);
 
         autoScroller.scrollSpeed *= 1.5f;
-        groundSpeed = thirdStageSpeed;
+        platformSpeed = thirdStageSpeed;
         distancePerSecond += 2.5f;
-        spawnerController.cadence -= 0.2f;
+        spawnerController.cadence -= cadenceToDecrease;
     }
 
     private IEnumerator RespawnPlayer()
