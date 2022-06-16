@@ -18,22 +18,34 @@ public class GameController_IJ : MonoBehaviour
     [SerializeField] private float thirdStageSpeed;
     [SerializeField] private float timeToSecondStage;
     [SerializeField] private float timeToThirdStage;
-    [SerializeField] private float spawnTime;
+    [SerializeField] private float respawnTime;
+    [SerializeField] private float distancePerSecond;
+    [SerializeField] private float playerGravity;
 
     [Header("Data")]
     public int score;
     public float distance;
     public int playerLives;
+    public float totalScore;
 
     [Header("Dependencies")]
     [SerializeField] private AutoScroller autoScroller;
     [SerializeField] private GameObject player;
+    [SerializeField] private SpawnerController_IJ spawnerController;
+    [SerializeField] private GameObject mainCanvas;
+    [SerializeField] private GameObject gameOverCanvas;
+
+    [Header("UI")]
+    [SerializeField] private DistanceUI distanceUI;
+    [SerializeField] private ScoreUI scoreUI;
+    [SerializeField] private LifeUI lifeUI;
 
     // Ground Properties
     [HideInInspector] public float groundSpeed;
-
+    
     //private
     private Vector3 startPosition;
+    private bool isDead = false;
 
     #region "Awake/Start/Update"
 
@@ -42,12 +54,18 @@ public class GameController_IJ : MonoBehaviour
         instance = this;
         score = 0;
         distance = 0;
+        Time.timeScale = 1f;
     }
 
     private void Start()
     {
+        mainCanvas.SetActive(true);
+        gameOverCanvas.SetActive(false);
+        isDead = false;
+        player.GetComponent<Rigidbody2D>().gravityScale = playerGravity;
         StartCoroutine(StageCoroutine());
         startPosition = player.transform.position;
+        StartCoroutine(DistanceCoroutine());
     }
 
     #endregion
@@ -57,14 +75,18 @@ public class GameController_IJ : MonoBehaviour
     public void SetScore(int scorePoints)
     {
         score += scorePoints;
+        scoreUI.SetScoreValueText();
     }
 
     public void SetPlayerLives(int value)
     {
         playerLives += value;
+        lifeUI.SetValueText();
 
-        if(playerLives <= 0)
-        {
+        if (playerLives <= 0)
+        {             
+            StopCoroutine(DistanceCoroutine());
+            isDead = true;
             OnGameOver();
         }
         else
@@ -76,6 +98,11 @@ public class GameController_IJ : MonoBehaviour
     public void OnGameOver()
     {
         Debug.Log("GameOver!");
+        Time.timeScale = 0;
+        totalScore = score + distance;
+        scoreUI.SetTotalValueText();
+        mainCanvas.SetActive(false);
+        gameOverCanvas.SetActive(true);
     }
 
     #endregion
@@ -90,11 +117,15 @@ public class GameController_IJ : MonoBehaviour
 
         autoScroller.scrollSpeed *= 2;
         groundSpeed = secondStageSpeed;
+        distancePerSecond += 1.5f;
+        spawnerController.cadence -= 0.2f;
 
         yield return new WaitForSeconds(timeToThirdStage);
 
         autoScroller.scrollSpeed *= 1.5f;
         groundSpeed = thirdStageSpeed;
+        distancePerSecond += 2.5f;
+        spawnerController.cadence -= 0.2f;
     }
 
     private IEnumerator RespawnPlayer()
@@ -102,7 +133,7 @@ public class GameController_IJ : MonoBehaviour
         player.GetComponentInChildren<SpriteRenderer>().enabled = false;
         player.layer = 3;
 
-        yield return new WaitForSeconds(spawnTime);
+        yield return new WaitForSeconds(respawnTime);
 
         player.transform.position = startPosition;
         player.GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -117,8 +148,20 @@ public class GameController_IJ : MonoBehaviour
 
         player.layer = 7;
 
-        player.GetComponent<Rigidbody2D>().gravityScale = 1;
+        player.GetComponent<Rigidbody2D>().gravityScale = playerGravity;
         player.GetComponentInChildren<SpriteRenderer>().enabled = true;  
+    }
+
+    private IEnumerator DistanceCoroutine()
+    {
+        while(isDead == false)
+        {
+            distance += (distancePerSecond/2);
+
+            distanceUI.SetValueText();
+
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     #endregion

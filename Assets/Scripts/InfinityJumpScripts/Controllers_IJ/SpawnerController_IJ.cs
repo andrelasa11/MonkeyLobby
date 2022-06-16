@@ -7,7 +7,7 @@ public class SpawnerController_IJ : MonoBehaviour
 
     [Header("Cadence")]
     [SerializeField] private float initialWaitTime; // tempo de espera para iniciar o spawn
-    [SerializeField] private float cadence; // tempo de espera entre um objeto e outro
+    public float cadence; // tempo de espera entre um objeto e outro
 
     [Header("SpawnLocation")]
     [SerializeField] private float yPosition;

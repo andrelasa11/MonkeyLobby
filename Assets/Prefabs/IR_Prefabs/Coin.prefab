@@ -260,4 +260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad120554235ba25438905eecec7337ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scorePoints: 200
+  scorePoints: 2
+  spriteRenderer: {fileID: 8235696955335663139}
+  coinConfigs:
+  - {fileID: 11400000, guid: 6ef2a9c396083864da6e5aaefdb8d7a5, type: 2}
+  - {fileID: 11400000, guid: 6ee614cc28173904e9e7fe6946c6636e, type: 2}
+  - {fileID: 11400000, guid: c93061e69c8a4e143bb0c17c6438366b, type: 2}
