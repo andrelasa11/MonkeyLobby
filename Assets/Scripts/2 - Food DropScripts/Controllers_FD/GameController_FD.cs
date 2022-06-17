@@ -26,11 +26,14 @@ public class GameController_FD : MonoBehaviour
 
     [Header("Data")]
     public int score;
-    public int maxLives;
-    public int currentLife;
+    public int playerLife;
 
     [Header("Dependencies")]
     [SerializeField] private SpawnerController_IJ spawnerController;
+    [SerializeField] private ScoreUI_FD scoreUI;
+    [SerializeField] private LifeUI_FD lifeUI;
+    [SerializeField] private GameObject mainCanvas;
+    [SerializeField] private GameObject gameOverCanvas;
 
     // Food Properties
     [HideInInspector] public float foodSpeed;
@@ -46,7 +49,6 @@ public class GameController_FD : MonoBehaviour
     void Start()
     {
         StartCoroutine(StageCoroutine());
-        currentLife = maxLives;
     }
 
     #region "My Methods"
@@ -54,18 +56,26 @@ public class GameController_FD : MonoBehaviour
     public void SetScore(int scorePoints)
     {
         score += scorePoints;
-        //scoreUI.SetScoreValueText();
+        scoreUI.SetScoreValueText();
     }
 
     public void SetPlayerLives(int value)
     {
-        currentLife += value;
-        //lifeUI.SetValueText();
+        playerLife += value;
+        lifeUI.SetValueText();
 
-        if (currentLife <= 0)
+        if (playerLife <= 0)
         {            
-            //OnGameOver();
+            OnGameOver();
         }
+    }
+
+    public void OnGameOver()
+    {
+        Debug.Log("GameOver!");
+        Time.timeScale = 0;        
+        mainCanvas.SetActive(false);
+        gameOverCanvas.SetActive(true);
     }
 
     #endregion
