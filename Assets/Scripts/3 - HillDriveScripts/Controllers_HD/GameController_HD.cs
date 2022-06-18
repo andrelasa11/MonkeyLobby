@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController_HD : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class GameController_HD : MonoBehaviour
 
     #endregion
 
+    [Header("Fuel Configuration")]
+    public float fuel;
+    public float fuelConsumption;
+
     [Header("Data")]
     public int score;
     public float distance;
@@ -20,10 +25,13 @@ public class GameController_HD : MonoBehaviour
 
     [Header("Dependencies")]
     [SerializeField] private PlayerController_HD player;
+    [SerializeField] private GameObject mainCanvas;
+    [SerializeField] private GameObject gameOverCanvas;
 
     [Header("UI")]
     [SerializeField] private DistanceUI_HD distanceUI;
     [SerializeField] private ScoreUI_HD scoreUI;
+    public Image fuelUI;
 
     //private
     private Vector3 distanceReferencePoint;
@@ -40,6 +48,8 @@ public class GameController_HD : MonoBehaviour
 
     private void Start()
     {
+        mainCanvas.SetActive(true);
+        gameOverCanvas.SetActive(false);
         distanceReferencePoint = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
     }
 
@@ -57,10 +67,42 @@ public class GameController_HD : MonoBehaviour
     {
         score += scorePoints;
         scoreUI.SetScoreValueText();
-    }   
+    }
 
-    //Gameover inicia um loop: enquanto rigidbody2d.velocity.x != 0, nada acontece. Quando chegar a 0 = ativa o canvas do gameover.
-    
+    public void SetFuel(float value)
+    {
+        fuel += value;
+
+        if (fuel > 1)
+        {
+            fuel = 1;
+        }
+    }
+
+    public void OnGameOver()
+    {
+        Debug.Log("GameOver!");
+        Time.timeScale = 0;
+        totalScore = score + distance;
+        scoreUI.SetTotalValueText();
+        mainCanvas.SetActive(false);
+        gameOverCanvas.SetActive(true);
+    }
+
+    public void NoFuelGameOver()
+    {
+        StartCoroutine(GameOverCoroutine());
+    }
+
+    #endregion
+
+    #region "Coroutines"
+
+    private IEnumerator GameOverCoroutine()
+    {
+        yield return new WaitForSeconds(2);
+        OnGameOver();
+    }
 
     #endregion
 

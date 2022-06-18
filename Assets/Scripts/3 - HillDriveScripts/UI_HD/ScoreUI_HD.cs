@@ -16,12 +16,12 @@ public class ScoreUI_HD : MonoBehaviour
 
     public void SetScoreValueText()
     {
-        scoreValueText.text = GameController_HD.Instance.score.ToString();
+        scoreValueText.text = GameController_HD.Instance.score.ToString("N2");
     }
 
     public void SetTotalValueText()
     {
-        finalScoreValueText.text = GameController_HD.Instance.score.ToString();
-        totalValueText.text = GameController_HD.Instance.totalScore.ToString();
+        finalScoreValueText.text = GameController_HD.Instance.score.ToString("N2");
+        totalValueText.text = GameController_HD.Instance.totalScore.ToString("N2");
     }
 }
