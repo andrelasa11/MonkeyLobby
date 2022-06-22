@@ -27,6 +27,7 @@ public class GameController_HD : MonoBehaviour
     [SerializeField] private PlayerController_HD player;
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] private AudioSource audioSource;
 
     [Header("UI")]
     [SerializeField] private DistanceUI_HD distanceUI;
@@ -66,12 +67,14 @@ public class GameController_HD : MonoBehaviour
     public void SetScore(int scorePoints)
     {
         score += scorePoints;
+        AudioManager.Instance.PlayCoin();
         scoreUI.SetScoreValueText();
     }
 
     public void SetFuel(float value)
     {
         fuel += value;
+        AudioManager.Instance.PlayFuel();
 
         if (fuel > 1)
         {
@@ -81,7 +84,9 @@ public class GameController_HD : MonoBehaviour
 
     public void OnGameOver()
     {
+
         Debug.Log("GameOver!");
+        audioSource.Stop();
         Time.timeScale = 0;
         totalScore = score + distance;
         scoreUI.SetTotalValueText();

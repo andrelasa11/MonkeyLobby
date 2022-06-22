@@ -14,6 +14,7 @@ public class PlayerController_HD : MonoBehaviour
     [SerializeField] private Rigidbody2D carRigidBody;
     [SerializeField] private Rigidbody2D backTire;
     [SerializeField] private Rigidbody2D frontTire;
+    [SerializeField] private AudioSource audioSource;
 
     [Header("UI")]
     [SerializeField] private Image fuelUI;
@@ -32,6 +33,15 @@ public class PlayerController_HD : MonoBehaviour
 
             GameController_HD.Instance.fuel -= GameController_HD.Instance.fuelConsumption * Mathf.Abs(horizontalMove) * Time.fixedDeltaTime;
             GameController_HD.Instance.fuelUI.fillAmount = GameController_HD.Instance.fuel;
+
+            if (horizontalMove != 0)
+            {
+                audioSource.volume = 0.7f;
+            }
+            else
+            {
+                audioSource.volume = 0.2f;
+            }
         }
         else
         {

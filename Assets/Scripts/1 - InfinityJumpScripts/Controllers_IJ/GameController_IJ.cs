@@ -78,6 +78,7 @@ public class GameController_IJ : MonoBehaviour
     public void SetScore(int scorePoints)
     {
         score += scorePoints;
+        AudioManager.Instance.PlayCoin();
         scoreUI.SetScoreValueText();
     }
 

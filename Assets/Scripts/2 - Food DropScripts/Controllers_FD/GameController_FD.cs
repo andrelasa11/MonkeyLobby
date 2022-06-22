@@ -34,6 +34,7 @@ public class GameController_FD : MonoBehaviour
     [SerializeField] private LifeUI_FD lifeUI;
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] private GameObject gameOverCanvas;
+    public AudioClip foodDropMusic;
 
     // Food Properties
     [HideInInspector] public float foodSpeed;
@@ -48,6 +49,8 @@ public class GameController_FD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        AudioManager.Instance.GetComponent<AudioSource>().Stop();
         StartCoroutine(StageCoroutine());
     }
 
@@ -55,13 +58,19 @@ public class GameController_FD : MonoBehaviour
 
     public void SetScore(int scorePoints)
     {
-        score += scorePoints;
+        score += scorePoints;        
         scoreUI.SetScoreValueText();
+
+        if(scorePoints > 0)
+        {
+            AudioManager.Instance.PlayEating();
+        }
     }
 
     public void SetPlayerLives(int value)
     {
         playerLife += value;
+        AudioManager.Instance.PlayFailure();
         lifeUI.SetValueText();
 
         if (playerLife <= 0)
@@ -73,6 +82,7 @@ public class GameController_FD : MonoBehaviour
     public void OnGameOver()
     {
         Debug.Log("GameOver!");
+        AudioManager.Instance.PlayDeath();
         Time.timeScale = 0;        
         mainCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);

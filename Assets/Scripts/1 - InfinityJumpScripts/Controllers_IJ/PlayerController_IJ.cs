@@ -29,11 +29,14 @@ public class PlayerController_IJ : MonoBehaviour
         if(rigidBody.velocity.y < -1.5f)
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+
+            AudioManager.Instance.PlayJump();
         }        
     }
 
     public void OnDeath()
     {
         GameController_IJ.Instance.SetPlayerLives(-1);
+        AudioManager.Instance.PlayDeath();
     }
 }
