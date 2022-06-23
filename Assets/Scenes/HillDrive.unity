@@ -1080,9 +1080,9 @@ GameObject:
   - component: {fileID: 515290008}
   - component: {fileID: 515290007}
   - component: {fileID: 515290009}
-  m_Layer: 0
-  m_Name: BackTire
-  m_TagString: Untagged
+  m_Layer: 9
+  m_Name: BackWheel
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1110,13 +1110,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 515290005}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: db20e6c261fb47e4ba1fd2592db3df20, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.15
 --- !u!212 &515290008
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1180,7 +1180,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1490,9 +1490,9 @@ GameObject:
   - component: {fileID: 636385714}
   - component: {fileID: 636385716}
   - component: {fileID: 636385715}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerSprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1589,7 +1589,7 @@ MonoBehaviour:
   limitsActions:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 915082814}
+      - m_Target: {fileID: 915082812}
         m_TargetAssemblyTypeName: PlayerController_HD, Assembly-CSharp
         m_MethodName: DoInstaGameOver
         m_Mode: 1
@@ -1919,10 +1919,10 @@ GameObject:
   m_Component:
   - component: {fileID: 915082810}
   - component: {fileID: 915082809}
+  - component: {fileID: 915082813}
   - component: {fileID: 915082812}
   - component: {fileID: 915082811}
   - component: {fileID: 915082814}
-  - component: {fileID: 915082813}
   m_Layer: 0
   m_Name: CarPlayer
   m_TagString: Player
@@ -1942,14 +1942,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 1.1
+  m_Material: {fileID: 6200000, guid: db20e6c261fb47e4ba1fd2592db3df20, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!4 &915082810
 Transform:
@@ -1979,44 +1979,40 @@ WheelJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1631065275}
+  m_ConnectedRigidBody: {fileID: 515290009}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0.39999998, y: -0.25099993}
+  m_Anchor: {x: -0.40199995, y: -0.26999998}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.5
-    m_Frequency: 10
+    m_DampingRatio: 0.7
+    m_Frequency: 9
     m_Angle: 90
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
---- !u!235 &915082812
-WheelJoint2D:
+--- !u!114 &915082812
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915082808}
   m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 515290009}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.402, y: -0.25099993}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_Suspension:
-    m_DampingRatio: 0.5
-    m_Frequency: 10
-    m_Angle: 90
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597e6b602c9f520488f84513fbdcf815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2000
+  rotationSpeed: 90
+  backWheel: {fileID: 915082811}
+  frontWheel: {fileID: 915082814}
+  rigidBody: {fileID: 915082809}
+  audioSource: {fileID: 502176115}
+  fuelUI: {fileID: 21807852}
+  horizontalMove: 0
 --- !u!114 &915082813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2044,7 +2040,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 915082814}
+      - m_Target: {fileID: 915082812}
         m_TargetAssemblyTypeName: PlayerController_HD, Assembly-CSharp
         m_MethodName: OnMovement
         m_Mode: 0
@@ -2067,25 +2063,30 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerControls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &915082814
-MonoBehaviour:
+--- !u!235 &915082814
+WheelJoint2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915082808}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 597e6b602c9f520488f84513fbdcf815, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 80
-  carTorque: 80
-  carRigidBody: {fileID: 915082809}
-  backTire: {fileID: 515290009}
-  frontTire: {fileID: 1631065275}
-  audioSource: {fileID: 502176115}
-  fuelUI: {fileID: 21807852}
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 1631065275}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0.4, y: -0.26999998}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_Suspension:
+    m_DampingRatio: 0.7
+    m_Frequency: 9
+    m_Angle: 90
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
 --- !u!1 &968579216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,7 +2541,7 @@ MonoBehaviour:
   score: 0
   distance: 0
   totalScore: 0
-  player: {fileID: 915082814}
+  player: {fileID: 915082812}
   mainCanvas: {fileID: 54533579}
   gameOverCanvas: {fileID: 968579216}
   audioSource: {fileID: 502176115}
@@ -2768,11 +2769,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1631065272}
   - component: {fileID: 1631065274}
-  - component: {fileID: 1631065273}
   - component: {fileID: 1631065275}
-  m_Layer: 0
-  m_Name: FrontTire
-  m_TagString: Untagged
+  - component: {fileID: 1631065273}
+  m_Layer: 9
+  m_Name: FrontWheel
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2800,13 +2801,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 1631065271}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: db20e6c261fb47e4ba1fd2592db3df20, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.15
 --- !u!212 &1631065274
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2870,7 +2871,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -3211,7 +3212,7 @@ GameObject:
   - component: {fileID: 1784847594}
   - component: {fileID: 1784847596}
   - component: {fileID: 1784847595}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Car
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3257,16 +3258,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.5348315, y: -0.18530016}
-      - {x: 0.55382025, y: -0.2738314}
-      - {x: 0.64, y: -0.235}
-      - {x: 0.64, y: 0.015}
-      - {x: 0.62, y: 0.02}
-      - {x: 0.60499996, y: 0.02}
-      - {x: 0.555, y: 0.024999999}
-      - {x: 0.34, y: 0.095}
-      - {x: 0.235, y: 0.22}
-      - {x: 0.18617976, y: 0.18824714}
+    - - {x: 0.54615134, y: -0.1753953}
+      - {x: 0.5624139, y: -0.22655252}
+      - {x: 0.5856101, y: -0.18403135}
+      - {x: 0.61746204, y: -0.11631489}
+      - {x: 0.58752286, y: -0.038375244}
+      - {x: 0.583299, y: -0.02192567}
+      - {x: 0.5694233, y: -0.00804184}
+      - {x: 0.540506, y: 0.01154127}
+      - {x: 0.34, y: 0.061870784}
+      - {x: 0.21947066, y: 0.20654127}
+      - {x: 0.18928564, y: 0.1830706}
       - {x: 0.19704498, y: 0.1694157}
       - {x: 0.19, y: 0.125}
       - {x: 0.155, y: 0.07}
@@ -3280,24 +3282,28 @@ PolygonCollider2D:
       - {x: -0.58, y: 0.055}
       - {x: -0.585, y: 0.015}
       - {x: -0.585, y: -0.16}
-      - {x: -0.62, y: -0.145}
-      - {x: -0.63, y: -0.17}
-      - {x: -0.63, y: -0.22999999}
-      - {x: -0.615, y: -0.24}
-      - {x: -0.5473483, y: -0.25824714}
-      - {x: -0.54652417, y: -0.257824}
-      - {x: -0.50529206, y: -0.12971905}
-      - {x: -0.40675285, y: -0.09030332}
-      - {x: -0.31781664, y: -0.11642581}
-      - {x: -0.26235953, y: -0.19794382}
-      - {x: -0.25324714, y: -0.24648309}
-      - {x: -0.265, y: -0.295}
-      - {x: 0.2594157, y: -0.28265166}
-      - {x: 0.28529218, y: -0.15798855}
-      - {x: 0.32999998, y: -0.145}
-      - {x: 0.34471834, y: -0.119955294}
-      - {x: 0.41342396, y: -0.103032775}
-      - {x: 0.48882023, y: -0.13412355}
+      - {x: -0.5861418, y: -0.16330649}
+      - {x: -0.5850601, y: -0.17531483}
+      - {x: -0.5847603, y: -0.17433691}
+      - {x: -0.578841, y: -0.22779867}
+      - {x: -0.5829134, y: -0.2258272}
+      - {x: -0.58218974, y: -0.22694898}
+      - {x: -0.5624685, y: -0.22711617}
+      - {x: -0.54902256, y: -0.20669103}
+      - {x: -0.52707946, y: -0.14455104}
+      - {x: -0.5067071, y: -0.115569144}
+      - {x: -0.47080958, y: -0.08720183}
+      - {x: -0.38765064, y: -0.07120098}
+      - {x: -0.30578926, y: -0.10722834}
+      - {x: -0.24962464, y: -0.1951138}
+      - {x: -0.22677767, y: -0.24261808}
+      - {x: -0.21451128, y: -0.25793448}
+      - {x: 0.2282787, y: -0.25576687}
+      - {x: 0.2499989, y: -0.15407634}
+      - {x: 0.320068, y: -0.0954137}
+      - {x: 0.38292283, y: -0.08458065}
+      - {x: 0.44101608, y: -0.0895905}
+      - {x: 0.5135824, y: -0.12634109}
     - - {x: 0.235, y: 0.089999996}
       - {x: 0.22999999, y: 0.095}
       - {x: 0.22999999, y: 0.085}

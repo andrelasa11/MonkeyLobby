@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 5044596235989362513}
   m_Layer: 0
   m_Name: Ground_LvL3
-  m_TagString: Untagged
+  m_TagString: Limits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -440,7 +440,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 5044596235989362518}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 72c7236c37db02c4bb29df746277b5bd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

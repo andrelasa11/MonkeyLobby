@@ -69,6 +69,7 @@ public class GameController_IJ : MonoBehaviour
         StartCoroutine(StageCoroutine());
         startPosition = player.transform.position;
         StartCoroutine(DistanceCoroutine());
+        StartCoroutine(RespawnPlayer());
     }
 
     #endregion
