@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Lobby")]
     public AudioClip select;
+    public AudioClip showering;
 
     [Header("InfinityJump")]
     public AudioClip jumping;
@@ -53,6 +54,11 @@ public class AudioManager : MonoBehaviour
     public void PlaySelect()
     {
         PlaySound(select);
+    }
+
+    public void PlayShowering()
+    {
+        PlaySound(showering);
     }
 
     #endregion

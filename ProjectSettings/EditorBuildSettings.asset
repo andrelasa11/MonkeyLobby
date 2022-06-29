@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/NewLobby.unity
-    guid: b74f2591ca8e63d4fb0191086f3c6828
+    path: Assets/Scenes/PetLobby.unity
+    guid: 132b7620666a1da4db1716a481bb4850
   - enabled: 1
     path: Assets/Scenes/InfinityMonkeyJump.unity
     guid: f1e42282aa2853242b3223b2c8329e5d
