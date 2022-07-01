@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController_IJ : MonoBehaviour
@@ -49,6 +50,7 @@ public class GameController_IJ : MonoBehaviour
     //private
     private Vector3 startPosition;
     private bool isDead = false;
+    private SpriteRenderer[] spritesToTint;
 
     #region "Awake/Start/Update"
 
@@ -134,8 +136,15 @@ public class GameController_IJ : MonoBehaviour
     }
 
     private IEnumerator RespawnPlayer()
-    {
-        player.GetComponentInChildren<SpriteRenderer>().enabled = false;
+    {        
+        spritesToTint = player.GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (SpriteRenderer spriteRenderer in spritesToTint)
+        {
+            spriteRenderer.enabled = false;
+        }
+
+
         player.layer = 3;
 
         yield return new WaitForSeconds(respawnTime);
@@ -147,14 +156,22 @@ public class GameController_IJ : MonoBehaviour
 
         for (float i = 0; i < 3; i += 0.1f)
         {
-            player.GetComponentInChildren<SpriteRenderer>().enabled = !player.GetComponentInChildren<SpriteRenderer>().enabled;
-            yield return new WaitForSeconds(0.1f);
+            foreach(SpriteRenderer spriteRenderer in spritesToTint)
+            {
+                spriteRenderer.enabled = !spriteRenderer.enabled;
+            }
+            
+            yield return new WaitForSeconds(0.1f);            
         }
 
         player.layer = 7;
 
         player.GetComponent<Rigidbody2D>().gravityScale = playerGravity;
-        player.GetComponentInChildren<SpriteRenderer>().enabled = true;  
+        
+        foreach (SpriteRenderer spriteRenderer in spritesToTint)
+        {
+            spriteRenderer.enabled = true;
+        }
     }
 
     private IEnumerator DistanceCoroutine()
