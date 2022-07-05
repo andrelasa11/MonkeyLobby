@@ -12,6 +12,7 @@ public class PlayerController_HD : MonoBehaviour
     [SerializeField] private WheelJoint2D backWheel;
     [SerializeField] private WheelJoint2D frontWheel;
     [SerializeField] private Rigidbody2D rigidBody;
+    [SerializeField] private Animator animator;
     [SerializeField] private AudioSource audioSource;
 
     [Header("UI")]
@@ -57,6 +58,12 @@ public class PlayerController_HD : MonoBehaviour
             GameController_HD.Instance.NoFuelGameOver();
             audioSource.volume = 0.2f;
         }
+
+        if (rigidBody.velocity.y < 0)
+        {
+            animator.SetBool("IsFalling", true);
+        }
+        else animator.SetBool("IsFalling", false);
         
     }
 
@@ -69,5 +76,6 @@ public class PlayerController_HD : MonoBehaviour
     {
         GameController_HD.Instance.OnGameOver();
     }
+   
     
 }

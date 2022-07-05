@@ -25,6 +25,10 @@ public class PetController : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private TimingController timingController;
     [SerializeField] private UIController uiController;
+    [SerializeField] private Animator animator;
+
+    //private
+    private bool isSleeping = false;
 
     public void Initialize(int dirt, int happiness, int energy, int food,
         int dirtTickRate, int happinessTickRate, int energyTickRate, int foodTickRate)
@@ -171,5 +175,20 @@ public class PetController : MonoBehaviour
 
         int secondDifferenceAmount = now.Second - lastTime.Second;
         return Mathf.RoundToInt(secondDifferenceAmount / tickRateInSeconds);
+    }
+
+    public void SetSleep()
+    {
+        if (isSleeping == true)
+        {
+            animator.SetBool("IsSleeping", false);
+            isSleeping = false;
+        }
+        else
+        {
+
+            animator.SetBool("IsSleeping", true);
+            isSleeping = true;
+        }
     }
 }
