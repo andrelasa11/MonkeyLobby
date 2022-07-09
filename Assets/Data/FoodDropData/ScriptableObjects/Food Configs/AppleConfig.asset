@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bd651b10032a24ba0caeb62960e1ad, type: 3}
   m_Name: AppleConfig
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 0b01919ea2a73514dbe557f6339c0c59, type: 3}
+  sprite: {fileID: -7832214784768987486, guid: 96939b4af2d243f4ebb5e5f37cfec490, type: 3}
   scorePoints: 3

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BallConfig
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 48210347ca3470b46b6e3c9daa30f22d, type: 3}
-  scoreToDecrease: 4
+  scoreToDecrease: 2

@@ -26,9 +26,11 @@ public class PetController : MonoBehaviour
     [SerializeField] private TimingController timingController;
     [SerializeField] private UIController uiController;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject chestButton;
 
     //private
     private bool isSleeping = false;
+    private bool isDancing = false;
 
     public void Initialize(int dirt, int happiness, int energy, int food,
         int dirtTickRate, int happinessTickRate, int energyTickRate, int foodTickRate)
@@ -82,6 +84,8 @@ public class PetController : MonoBehaviour
         uiController.SetHappiness(happiness);
         uiController.SetEnergy(energy);
         uiController.SetFood(food);
+        AudioManager.Instance.PlayBgLobby();
+        Screen.orientation = ScreenOrientation.Portrait;
     }
 
     private void Update()
@@ -181,14 +185,40 @@ public class PetController : MonoBehaviour
     {
         if (isSleeping == true)
         {
+            chestButton.SetActive(true);
             animator.SetBool("IsSleeping", false);
             isSleeping = false;
         }
         else
         {
-
+            chestButton.SetActive(false);
             animator.SetBool("IsSleeping", true);
             isSleeping = true;
         }
+    }
+
+    public void SetDanceAnimation()
+    {
+        if (isDancing == true)
+        {
+            chestButton.SetActive(true);
+            animator.SetBool("IsDancing", false);
+            AudioManager.Instance.PlayDacingSong();
+            isDancing = false;
+            
+        }
+        else
+        {
+            chestButton.SetActive(false);
+            animator.SetBool("IsDancing", true);
+            AudioManager.Instance.PlayDacingSong();
+            isDancing = true;
+        }
+    }
+
+    public void DoSmile()
+    {
+        animator.SetTrigger("Smile");
+        AudioManager.Instance.PlayDeath();
     }
 }

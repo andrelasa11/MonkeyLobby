@@ -13,16 +13,21 @@ public class AudioManager : MonoBehaviour
     [Header("Lobby")]
     public AudioClip select;
     public AudioClip showering;
+    public AudioClip bgLobby;
+    public AudioClip dancingSong;
 
     [Header("InfinityJump")]
     public AudioClip jumping;
+    public AudioClip bgInfinityJump;
 
     [Header("FoodDrop")]
     public AudioClip eating;
     public AudioClip failure;
+    public AudioClip bgFoodDropSound;
 
     [Header("HillDrive")]
     public AudioClip fuel;
+    public AudioClip bgHillDrive;
 
     [Header("Generals")]
     public AudioClip coin;
@@ -30,6 +35,9 @@ public class AudioManager : MonoBehaviour
 
     [Header("Dependencies")]
     [SerializeField] private AudioSource audioSource;
+
+    //private
+    private bool isDancing = false;
 
     private void Awake()
     {
@@ -41,12 +49,19 @@ public class AudioManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        }        
+        }
+
     }
 
     private void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    private void SetBGSound(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 
     #region "Lobby Methods"
@@ -59,6 +74,26 @@ public class AudioManager : MonoBehaviour
     public void PlayShowering()
     {
         PlaySound(showering);
+    }
+
+    public void PlayDacingSong()
+    {
+        if (isDancing == false)
+        {
+            SetBGSound(dancingSong);
+            isDancing = true;
+        }
+        else
+        {
+            SetBGSound(bgLobby);
+            isDancing = false;
+        }
+        
+    }
+
+    public void PlayBgLobby()
+    {
+        SetBGSound(bgLobby);
     }
 
     #endregion
@@ -84,6 +119,11 @@ public class AudioManager : MonoBehaviour
         PlaySound(failure);
     }
 
+    public void PlayBgInfinityJump()
+    {
+        SetBGSound(bgInfinityJump);
+    }
+
     #endregion
 
     #region "Hill Drive Methods"
@@ -91,6 +131,11 @@ public class AudioManager : MonoBehaviour
     public void PlayFuel()
     {
         PlaySound(fuel);
+    }
+
+    public void PlayBgHillDrive()
+    {
+        SetBGSound(bgHillDrive);
     }
 
     #endregion
@@ -105,6 +150,11 @@ public class AudioManager : MonoBehaviour
     public void PlayDeath()
     {
         PlaySound(death);
+    }
+
+    public void PlayBgFoodDrop()
+    {
+        SetBGSound(bgFoodDropSound);
     }
 
     #endregion

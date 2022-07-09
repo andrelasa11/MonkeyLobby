@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f304015fbf9e7dd45979d1407b365959, type: 3}
   m_Name: BombConfig
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 82e787b5585477e4a89c3bc2dbd1eb08, type: 3}
-  scoreToDecrease: 10
+  sprite: {fileID: 21300000, guid: 42217589c2a80064d9fced7e6664b0f8, type: 3}
+  scoreToDecrease: 8

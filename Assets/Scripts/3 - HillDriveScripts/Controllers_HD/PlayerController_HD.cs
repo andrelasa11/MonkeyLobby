@@ -21,6 +21,11 @@ public class PlayerController_HD : MonoBehaviour
     //private
     [SerializeField] private float horizontalMove;
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayBgHillDrive();
+    }
+
     void FixedUpdate()
     {
 

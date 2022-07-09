@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96de46c5967f3e749bdfe4121b99fe14, type: 3}
   m_Name: SilverCoinConfig
   m_EditorClassIdentifier: 
-  sprite: {fileID: -3076578299200870413, guid: 8b2c93bcc46803644a2bf9f113550e93, type: 3}
+  sprite: {fileID: -5806129696438387927, guid: 68b71ae73c4bc6e429e99b183bb74f1b, type: 3}
   scorePoints: 2

@@ -48,10 +48,10 @@ public class GameController_FD : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-
-        AudioManager.Instance.GetComponent<AudioSource>().Stop();
+    {            
         StartCoroutine(StageCoroutine());
+
+        AudioManager.Instance.PlayBgFoodDrop();
     }
 
     #region "My Methods"
@@ -83,7 +83,15 @@ public class GameController_FD : MonoBehaviour
     {
         Debug.Log("GameOver!");
         AudioManager.Instance.PlayDeath();
-        Time.timeScale = 0;        
+        Time.timeScale = 0;
+
+        if(score > GameManager.Instance.foodDropRecord)
+        {
+            GameManager.Instance.SetFoodDropRecord(score);
+        }
+
+        scoreUI.SetScoreValueText();
+
         mainCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);
     }

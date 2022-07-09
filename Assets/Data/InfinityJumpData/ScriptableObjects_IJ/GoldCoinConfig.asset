@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96de46c5967f3e749bdfe4121b99fe14, type: 3}
   m_Name: GoldCoinConfig
   m_EditorClassIdentifier: 
-  sprite: {fileID: 6795138796809377442, guid: 8b2c93bcc46803644a2bf9f113550e93, type: 3}
-  scorePoints: 3
+  sprite: {fileID: -711310555315766848, guid: 1a721c3457405fa45941d23cd7536de4, type: 3}
+  scorePoints: 4

@@ -52,6 +52,8 @@ public class GameController_HD : MonoBehaviour
         mainCanvas.SetActive(true);
         gameOverCanvas.SetActive(false);
         distanceReferencePoint = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     private void Update()
@@ -89,6 +91,12 @@ public class GameController_HD : MonoBehaviour
         audioSource.Stop();
         Time.timeScale = 0;
         totalScore = score + distance;
+
+        if(totalScore > GameManager.Instance.hillDriveRecord)
+        {
+            GameManager.Instance.SetHillDriveRecord(totalScore);
+        }
+
         scoreUI.SetTotalValueText();
         mainCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);

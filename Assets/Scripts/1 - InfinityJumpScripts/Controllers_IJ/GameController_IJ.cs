@@ -64,6 +64,7 @@ public class GameController_IJ : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.PlayBgInfinityJump();
         mainCanvas.SetActive(true);
         gameOverCanvas.SetActive(false);
         isDead = false;
@@ -107,6 +108,12 @@ public class GameController_IJ : MonoBehaviour
         Debug.Log("GameOver!");
         Time.timeScale = 0;
         totalScore = score + distance;
+
+        if(totalScore > GameManager.Instance.infinityJumpRecord)
+        {
+            GameManager.Instance.SetInfinityJumpRecord(totalScore);
+        }
+
         scoreUI.SetTotalValueText();
         mainCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);

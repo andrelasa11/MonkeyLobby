@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LampConfig
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: d73248d5265f1c949a2cd2615b86fa2d, type: 3}
-  scoreToDecrease: 7
+  scoreToDecrease: 3
