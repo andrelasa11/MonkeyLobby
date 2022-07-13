@@ -3,13 +3,20 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-
+    [Header("Sliders")]
     [SerializeField] private Slider dirtSlider;
     [SerializeField] private Slider happinessSlider;
     [SerializeField] private Slider energySlider;
     [SerializeField] private Slider foodSlider;
+
+    [Header("LobbyImages")]
     [SerializeField] private Image lampFilter;
     [SerializeField] private Image gameLobby;
+
+    [Header("LobbyRecords")]
+    [SerializeField] private Text jmRecordValue;
+    [SerializeField] private Text fdRecordValue;
+    [SerializeField] private Text hdRecordValue;
 
     public void SetDirt(int value)
     {
@@ -30,6 +37,13 @@ public class UIController : MonoBehaviour
     {
         foodSlider.value = value;      
         
+    }
+
+    public void SetRecords()
+    {
+        jmRecordValue.text = GameManager.Instance.infinityJumpRecord.ToString("N2");
+        fdRecordValue.text = GameManager.Instance.foodDropRecord.ToString("N2");
+        hdRecordValue.text = GameManager.Instance.hillDriveRecord.ToString("N2");
     }
 
     public void SetLampFilter()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -84,6 +85,10 @@ public class GameController_FD : MonoBehaviour
         Debug.Log("GameOver!");
         AudioManager.Instance.PlayDeath();
         Time.timeScale = 0;
+
+        DateTime now = DateTime.Now;
+
+        GameManager.Instance.AddHappinessValue(15, now);
 
         if(score > GameManager.Instance.foodDropRecord)
         {

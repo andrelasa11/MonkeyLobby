@@ -9,7 +9,7 @@ public class CountdownController : MonoBehaviour
     [SerializeField] private GameObject lobby3;
 
     [SerializeField] private GameObject lobby1;
-
+    
     private int countdown = 6;
 
     private bool countdownOn = true;

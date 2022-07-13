@@ -15,11 +15,15 @@ public class PlayerController_HD : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource audioSource;
 
+    [Header("Camera")]
+    [SerializeField] private float aheadAmount;
+    [SerializeField] private float aheadSpeed;
+
     [Header("UI")]
     [SerializeField] private Image fuelUI;
 
     //private
-    [SerializeField] private float horizontalMove;
+    private float horizontalMove;
 
     private void Start()
     {

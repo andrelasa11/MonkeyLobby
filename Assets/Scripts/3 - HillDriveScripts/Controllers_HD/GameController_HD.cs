@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -92,7 +93,11 @@ public class GameController_HD : MonoBehaviour
         Time.timeScale = 0;
         totalScore = score + distance;
 
-        if(totalScore > GameManager.Instance.hillDriveRecord)
+        DateTime now = DateTime.Now;
+
+        GameManager.Instance.AddHappinessValue(15, now);
+
+        if (totalScore > GameManager.Instance.hillDriveRecord)
         {
             GameManager.Instance.SetHillDriveRecord(totalScore);
         }

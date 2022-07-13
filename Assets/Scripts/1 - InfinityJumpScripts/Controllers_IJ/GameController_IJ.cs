@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -109,7 +110,11 @@ public class GameController_IJ : MonoBehaviour
         Time.timeScale = 0;
         totalScore = score + distance;
 
-        if(totalScore > GameManager.Instance.infinityJumpRecord)
+        DateTime now = DateTime.Now;
+
+        GameManager.Instance.AddHappinessValue(15, now);
+
+        if (totalScore > GameManager.Instance.infinityJumpRecord)
         {
             GameManager.Instance.SetInfinityJumpRecord(totalScore);
         }
