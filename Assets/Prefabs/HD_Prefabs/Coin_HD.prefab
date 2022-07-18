@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4738983582863489402}
   - component: {fileID: 8235696955335663139}
-  m_Layer: 0
+  - component: {fileID: 6911893162412297668}
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Coin
   m_Icon: {fileID: 0}
@@ -50,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,6 +83,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6911893162412297668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942503239312776126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 0.8117647, g: 0.49961746, b: 0, a: 1}
+  glowBrightness: 2
+  outlineWidth: 1
+  alphaThreshold: 0.7
+  drawOutside: 0
+  enableInstancing: 0
 --- !u!1 &2131678401646347507
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +115,8 @@ GameObject:
   - component: {fileID: 296682774725345304}
   - component: {fileID: 5522722842023632558}
   - component: {fileID: 9175608938402563252}
-  m_Layer: 0
+  - component: {fileID: 4610765367238855196}
+  m_Layer: 11
   m_Name: Coin_HD
   m_TagString: Coin
   m_Icon: {fileID: 0}
@@ -252,3 +272,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6ef2a9c396083864da6e5aaefdb8d7a5, type: 2}
   - {fileID: 11400000, guid: c93061e69c8a4e143bb0c17c6438366b, type: 2}
   - {fileID: 11400000, guid: 6ee614cc28173904e9e7fe6946c6636e, type: 2}
+--- !u!95 &4610765367238855196
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131678401646347507}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19085f61f7d38cc4b903aef36d3351cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
