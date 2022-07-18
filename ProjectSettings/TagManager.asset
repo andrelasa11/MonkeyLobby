@@ -8,6 +8,8 @@ TagManager:
   - Danger
   - Platform
   - Coin
+  - PetFood
+  - PlayerHead
   layers:
   - Default
   - TransparentFX

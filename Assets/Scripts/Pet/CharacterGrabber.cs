@@ -6,7 +6,7 @@ public class CharacterGrabber : MonoBehaviour, IDraggable
     [SerializeField] private float virtualDragSpeed;
 
     [Header("Dependencies")]
-    [SerializeField] private Transform target;
+    public Transform target;
     [SerializeField] private GrabbableCharacter grabbableCharacter;
 
     //private
@@ -21,22 +21,44 @@ public class CharacterGrabber : MonoBehaviour, IDraggable
 
     public void OnDragStart()
     {
-        target.position = InputManager.worldMousePosition;
+        if(grabbableCharacter != null)
+        {
+            target.position = InputManager.worldMousePosition;
 
-        initialDistance = Vector3.Distance(transform.position, mainCamera.transform.position);
-        Vector2 anchor = (Vector2)grabbableCharacter.transform.position - InputManager.worldMousePosition * -10;
-        grabbableCharacter.Grabble(anchor);
-        target.localPosition = transform.position;
+            initialDistance = Vector3.Distance(transform.position, mainCamera.transform.position);
+            Vector2 anchor = (Vector2)grabbableCharacter.transform.position - InputManager.worldMousePosition;
+            grabbableCharacter.Grabble(anchor);
+            target.localPosition = transform.position;
+        }
+        else
+        {
+            Debug.Log("No Grabbable");
+        }
     }
 
     public void OnDragUpdate()
     {
-        Ray ray = mainCamera.ScreenPointToRay(InputManager.screenMousePosition);
-        target.position = Vector3.SmoothDamp(target.position, ray.GetPoint(initialDistance), ref velocity, virtualDragSpeed);
+        if(grabbableCharacter != null)
+        {
+            Ray ray = mainCamera.ScreenPointToRay(InputManager.screenMousePosition);
+            target.position = Vector3.SmoothDamp(target.position, ray.GetPoint(initialDistance), ref velocity, virtualDragSpeed);
+        }
+        else
+        {
+            Debug.Log("No Grabbable");
+        }
+
     }
 
     public void OnDragEnd()
     {
-        grabbableCharacter.Ungrab();
+        if(grabbableCharacter != null)
+        {
+            grabbableCharacter.Ungrab();
+        }
+        else
+        {
+            Debug.Log("No Grabbable");
+        }
     }
 }

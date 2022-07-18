@@ -28,19 +28,39 @@ public class GrabbableCharacter : MonoBehaviour
     {
         rb.isKinematic = false;
         springJoint.anchor = anchor;
-        springJoint.enabled = true;
-        iKManager2D.enabled = false;
 
-        animator.Rebind();
-        animator.Update(0f);
-        animator.enabled = false;
+        if (springJoint != null)
+        {
+            springJoint.enabled = true;
+        }
+
+        if(iKManager2D != null)
+        {
+            iKManager2D.enabled = false;
+        }
+        
+        if(animator != null)
+        {
+            animator.Rebind();
+            animator.Update(0f);
+            animator.enabled = false;
+        }
+        
     }
 
     public void Ungrab()
     {
         springJoint.enabled = false;
-        iKManager2D.enabled = true;
-        animator.enabled = true;
+
+        if(iKManager2D != null)
+        {
+            iKManager2D.enabled = true;
+        }
+        
+        if(animator != null)
+        {
+            animator.enabled = true;
+        }        
 
         transform.position = initialPosition;
         transform.eulerAngles = initialRotation;
