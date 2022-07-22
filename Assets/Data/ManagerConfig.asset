@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ManagerConfig
   m_EditorClassIdentifier: 
   money: 0
-  dirt: 70
-  happiness: 70
-  energy: 70
-  food: 70
+  dirt: 100
+  happiness: 100
+  energy: 100
+  food: 100
   infinityJumpRecord: 0
   foodDropRecord: 0
   hillDriveRecord: 0

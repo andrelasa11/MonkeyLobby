@@ -28,15 +28,18 @@ public class GameController_HD : MonoBehaviour
     [SerializeField] private PlayerController_HD player;
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] private GameObject gameOverCanvas;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;    
 
     [Header("UI")]
     [SerializeField] private DistanceUI_HD distanceUI;
     [SerializeField] private ScoreUI_HD scoreUI;
     public Image fuelUI;
 
+    [SerializeField] private List<GameObject> startGrounds;
+
     //private
     private Vector3 distanceReferencePoint;
+    private Vector3 startGenerationPosition;
 
     #region "Awake/Start/Update"
 
@@ -50,9 +53,12 @@ public class GameController_HD : MonoBehaviour
 
     private void Start()
     {
+        startGenerationPosition = new Vector3(this.transform.position.x, -7.5f, this.transform.position.z);
         mainCanvas.SetActive(true);
         gameOverCanvas.SetActive(false);
         distanceReferencePoint = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+
+        GenerateStartGround();
 
         Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
@@ -123,5 +129,13 @@ public class GameController_HD : MonoBehaviour
     }
 
     #endregion
+
+    public void GenerateStartGround()
+    {        
+        int startGroundIndex = UnityEngine.Random.Range(0, startGrounds.Count);
+        Debug.Log("StartGroundIndex: " + startGroundIndex + " StartGrounds.Count: " + startGrounds.Count);
+        Debug.Log(startGroundIndex);
+        Instantiate(startGrounds[startGroundIndex], startGenerationPosition, Quaternion.identity);
+    }
 
 }

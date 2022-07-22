@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Follow : MonoBehaviour
@@ -8,7 +6,7 @@ public class Follow : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private Transform target;
 
-    //private
+        //private
     private Vector3 offset;
 
     // Start is called before the first frame update
@@ -20,6 +18,8 @@ public class Follow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         transform.position = target.position + offset;
     }
+    
 }

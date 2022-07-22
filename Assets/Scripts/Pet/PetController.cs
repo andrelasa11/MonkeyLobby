@@ -229,6 +229,13 @@ public class PetController : MonoBehaviour
         }
     }
 
+    public void SleepOff()
+    {
+        chestButton.SetActive(true);
+        animator.SetBool("IsSleeping", false);
+        isSleeping = false;
+    }
+
     public void SetDanceAnimation()
     {
         if (isDancing == true)
