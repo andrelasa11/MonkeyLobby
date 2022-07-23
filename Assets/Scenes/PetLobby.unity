@@ -238,7 +238,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '#CD853F'
+          m_StringArgument: 5B412A
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1065801121}
@@ -1549,7 +1549,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.7411765, g: 0.7176471, b: 0.41960785, a: 0}
+  m_BackGroundColor: {r: 0.35686275, g: 0.25490198, b: 0.16470589, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3833,7 +3833,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 559149277}
-  - component: {fileID: 559149278}
   m_Layer: 5
   m_Name: BotCanvas
   m_TagString: Untagged
@@ -3862,27 +3861,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -1087}
   m_SizeDelta: {x: 0, y: -2175}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &559149278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559149276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b04a1b10db53c44858cf7d5392c1ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dirtSlider: {fileID: 0}
-  happinessSlider: {fileID: 0}
-  energySlider: {fileID: 0}
-  foodSlider: {fileID: 0}
-  lampFilter: {fileID: 0}
-  gameLobby: {fileID: 0}
-  jmRecordValue: {fileID: 0}
-  fdRecordValue: {fileID: 0}
-  hdRecordValue: {fileID: 0}
 --- !u!1 &574164942
 GameObject:
   m_ObjectHideFlags: 0
@@ -6063,6 +6041,88 @@ Transform:
   m_Father: {fileID: 1898905777}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 61.362}
+--- !u!1 &869033088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 869033089}
+  - component: {fileID: 869033090}
+  m_Layer: 0
+  m_Name: arcade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &869033089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869033088}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.99, y: -0.92, z: 0}
+  m_LocalScale: {x: 0.6473049, y: 0.7698808, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1698970192}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &869033090
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869033088}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 5a0aadfcb629aaa448bd381b36da9c24, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 4.5, y: 7.02}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &893041718
 GameObject:
   m_ObjectHideFlags: 0
@@ -7968,7 +8028,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '#7B68EE'
+          m_StringArgument: FEF0C1
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1065801121}
@@ -11820,8 +11880,9 @@ Transform:
   m_GameObject: {fileID: 1698970191}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8, y: -0.2024, z: 0}
-  m_LocalScale: {x: 1.544867, y: 1.2989024, z: 1}
-  m_Children: []
+  m_LocalScale: {x: 1.544867, y: 1.513611, z: 1}
+  m_Children:
+  - {fileID: 869033089}
   m_Father: {fileID: 1047516298}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11865,7 +11926,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5a0aadfcb629aaa448bd381b36da9c24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e879e2f6f1a02644822a666945fc669, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13602,7 +13663,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '#7B68EE'
+          m_StringArgument: FEF0C1
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1065801120}
@@ -14080,8 +14141,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050241145}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: 0.72, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.24640654, z: 1}
+  m_LocalPosition: {x: 8, y: 0.37, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.2560326, z: 1}
   m_Children: []
   m_Father: {fileID: 1047516298}
   m_RootOrder: 3
@@ -14126,7 +14187,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 82a56a6be41a72848bcae23818d7513a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2c15cfdac82560d43af724a3f9076153, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14271,7 +14332,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '#CD853F'
+          m_StringArgument: 5B412A
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1065801120}

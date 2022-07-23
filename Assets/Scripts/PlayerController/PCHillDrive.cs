@@ -50,7 +50,7 @@ public class PCHillDrive : PlayerController
                 GCHillDrive.Instance.fuelUI.fillAmount = GCHillDrive.Instance.fuel;
                 audioSource.volume = 0.7f;
 
-                rigidBody.AddTorque(horizontalMove * rotationSpeed * Time.fixedDeltaTime);
+                rigidBody.AddTorque(-horizontalMove * rotationSpeed * Time.fixedDeltaTime);
             }
         }
         else

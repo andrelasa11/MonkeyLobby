@@ -5192,9 +5192,11 @@ MonoBehaviour:
   audioSource: {fileID: 502176115}
   fuelUI: {fileID: 21807852}
   startGrounds:
-  - {fileID: 943432002934681862, guid: 27d2debf81713364b9f806f7ae098e86, type: 3}
   - {fileID: 943432002934681862, guid: d996e3a1999792c4db580050842ed356, type: 3}
   - {fileID: 943432002934681862, guid: 267649af2530c194f8b153745393fb75, type: 3}
+  - {fileID: 943432002934681862, guid: 27d2debf81713364b9f806f7ae098e86, type: 3}
+  - {fileID: 943432002934681862, guid: 30a24ab9309c49e4b88b4ba50f111c2a, type: 3}
+  - {fileID: 943432002934681862, guid: 35db70a5f3820ac46bf5c71c83641dbb, type: 3}
 --- !u!4 &1379452581
 Transform:
   m_ObjectHideFlags: 0
