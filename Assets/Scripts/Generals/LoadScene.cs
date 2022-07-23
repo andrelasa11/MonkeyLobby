@@ -13,15 +13,16 @@ public class LoadScene : MonoBehaviour
     }
 
     IEnumerator LoadLevel(string scene)
-    {
-        Time.timeScale = 1.0f;
+    {       
 
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
 
         Debug.Log("Loading...");
-        
+
+        Time.timeScale = 1.0f;
+
         SceneManager.LoadScene(scene);
     }
 }

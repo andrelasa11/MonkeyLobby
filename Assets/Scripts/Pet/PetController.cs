@@ -95,12 +95,12 @@ public class PetController : MonoBehaviour
 
     private void Start()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         uiController.SetDirt(dirt);
         uiController.SetHappiness(happiness);
         uiController.SetEnergy(energy);
         uiController.SetFood(food);
-        AudioManager.Instance.PlayBgLobby();
-        Screen.orientation = ScreenOrientation.Portrait;
+        AudioManager.Instance.PlayBgLobby();        
 
         Initialize();
     }

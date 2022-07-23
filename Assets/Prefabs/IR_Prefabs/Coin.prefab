@@ -212,10 +212,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerHeadActions:
+    m_PersistentCalls:
+      m_Calls: []
   dangerActions:
     m_PersistentCalls:
       m_Calls: []
   platformActions:
+    m_PersistentCalls:
+      m_Calls: []
+  petFoodActions:
     m_PersistentCalls:
       m_Calls: []
   coinActions:
@@ -286,6 +292,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6ef2a9c396083864da6e5aaefdb8d7a5, type: 2}
   - {fileID: 11400000, guid: 6ee614cc28173904e9e7fe6946c6636e, type: 2}
   - {fileID: 11400000, guid: c93061e69c8a4e143bb0c17c6438366b, type: 2}
+  infinityJump: 1
+  hillDrive: 0
 --- !u!95 &7717143799883807098
 Animator:
   serializedVersion: 3

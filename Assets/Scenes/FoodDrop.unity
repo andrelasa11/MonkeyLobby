@@ -231,19 +231,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b86e3099224b6840925a6108e867b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  distance: 0
+  playerLife: 8
+  totalScore: 0
+  mainCanvas: {fileID: 475798975}
+  gameOverCanvas: {fileID: 778840438}
+  distanceUI: {fileID: 0}
+  scoreUI: {fileID: 1959258001}
+  lifeUI: {fileID: 463375788}
   initialFoodSpeed: 4
   secondStageSpeed: 5
   thirdStageSpeed: 6
   timeToSecondStage: 20
   timeToThirdStage: 20
   cadenceToDecrease: 0.2
-  score: 0
-  playerLife: 8
   spawnerController: {fileID: 671917376}
-  scoreUI: {fileID: 1959258000}
-  lifeUI: {fileID: 463375787}
-  mainCanvas: {fileID: 475798975}
-  gameOverCanvas: {fileID: 778840438}
   foodDropMusic: {fileID: 8300000, guid: bd18a4ea6ebfe01488160edc88239d3b, type: 3}
   foodSpeed: 5
 --- !u!4 &55523649
@@ -868,6 +871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 463375786}
   - component: {fileID: 463375787}
+  - component: {fileID: 463375788}
   m_Layer: 5
   m_Name: LifeUI
   m_TagString: Untagged
@@ -906,6 +910,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12fc6c4ba4f59ed4bb3d12fb943f988f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueText: {fileID: 30856785}
+--- !u!114 &463375788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463375785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae55118e81ee25b478fe36afb3478d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   valueText: {fileID: 30856785}
@@ -2647,7 +2664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1959257999}
-  - component: {fileID: 1959258000}
+  - component: {fileID: 1959258001}
   m_Layer: 5
   m_Name: ScoreUI
   m_TagString: Untagged
@@ -2676,7 +2693,7 @@ RectTransform:
   m_AnchoredPosition: {x: -310, y: -210}
   m_SizeDelta: {x: 515, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1959258000
+--- !u!114 &1959258001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2685,12 +2702,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1959257998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2a1f0e9c7377724ab5726590ee03bbc, type: 3}
+  m_Script: {fileID: 11500000, guid: cf987884583741b469f40e6a5a50323d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValueText: {fileID: 1801369268}
   finalScoreValueText: {fileID: 1154162746}
-  recordScoreValueText: {fileID: 228846119}
+  totalValueText: {fileID: 1154162746}
+  recordValueText: {fileID: 228846119}
+  infinityJump: 0
+  foodDrop: 1
+  hillDrive: 0
 --- !u!1 &2038451022
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,7 +3769,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  isFacingRight: 1
   rigidBody: {fileID: 3916208098085486112}
   animator: {fileID: 1135367420038409658}
 --- !u!114 &3916208098085486118

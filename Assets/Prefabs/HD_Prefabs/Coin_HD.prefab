@@ -111,10 +111,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2297006699086912563}
   - component: {fileID: 2524644675015599878}
+  - component: {fileID: 6332656751736773525}
   - component: {fileID: 598212502141449190}
   - component: {fileID: 296682774725345304}
   - component: {fileID: 5522722842023632558}
-  - component: {fileID: 9175608938402563252}
   - component: {fileID: 4610765367238855196}
   m_Layer: 11
   m_Name: Coin_HD
@@ -159,6 +159,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6332656751736773525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131678401646347507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad120554235ba25438905eecec7337ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scorePoints: 4
+  spriteRenderer: {fileID: 8235696955335663139}
+  coinConfigs:
+  - {fileID: 11400000, guid: 6ef2a9c396083864da6e5aaefdb8d7a5, type: 2}
+  - {fileID: 11400000, guid: 6ee614cc28173904e9e7fe6946c6636e, type: 2}
+  - {fileID: 11400000, guid: c93061e69c8a4e143bb0c17c6438366b, type: 2}
+  infinityJump: 0
+  hillDrive: 1
 --- !u!114 &598212502141449190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,8 +194,8 @@ MonoBehaviour:
   playerActions:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9175608938402563252}
-        m_TargetAssemblyTypeName: CoinController_HD, Assembly-CSharp
+      - m_Target: {fileID: 6332656751736773525}
+        m_TargetAssemblyTypeName: CoinController, Assembly-CSharp
         m_MethodName: AddScore
         m_Mode: 1
         m_Arguments:
@@ -198,10 +218,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerHeadActions:
+    m_PersistentCalls:
+      m_Calls: []
   dangerActions:
     m_PersistentCalls:
       m_Calls: []
   platformActions:
+    m_PersistentCalls:
+      m_Calls: []
+  petFoodActions:
     m_PersistentCalls:
       m_Calls: []
   coinActions:
@@ -254,24 +280,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.18119104
---- !u!114 &9175608938402563252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2131678401646347507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d6c6cfb4b5c2649a76b8af1aacf108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scorePoints: 4
-  spriteRenderer: {fileID: 8235696955335663139}
-  coinConfigs:
-  - {fileID: 11400000, guid: 6ef2a9c396083864da6e5aaefdb8d7a5, type: 2}
-  - {fileID: 11400000, guid: c93061e69c8a4e143bb0c17c6438366b, type: 2}
-  - {fileID: 11400000, guid: 6ee614cc28173904e9e7fe6946c6636e, type: 2}
 --- !u!95 &4610765367238855196
 Animator:
   serializedVersion: 3

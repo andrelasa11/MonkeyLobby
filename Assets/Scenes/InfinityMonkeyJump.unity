@@ -240,6 +240,9 @@ MonoBehaviour:
   finalScoreValueText: {fileID: 120952858}
   totalValueText: {fileID: 476813258}
   recordValueText: {fileID: 995226586}
+  infinityJump: 1
+  foodDrop: 0
+  hillDrive: 0
 --- !u!1 &105730642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,6 +1733,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f924859fa7557746958367d7ebcacfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  distance: 0
+  playerLife: 3
+  totalScore: 0
+  mainCanvas: {fileID: 2099962715}
+  gameOverCanvas: {fileID: 1526008668}
+  distanceUI: {fileID: 223392387}
+  scoreUI: {fileID: 72816196}
+  lifeUI: {fileID: 1469970815}
   initialPlatformSpeed: 3
   secondStageSpeed: 5
   thirdStageSpeed: 7
@@ -1739,18 +1751,9 @@ MonoBehaviour:
   distancePerSecond: 2.5
   playerGravity: 3
   cadenceToDecrease: 0.2
-  score: 0
-  distance: 0
-  playerLives: 3
-  totalScore: 0
   autoScroller: {fileID: 835608730}
   player: {fileID: 1856452837}
   spawnerController: {fileID: 1853391906}
-  mainCanvas: {fileID: 2099962715}
-  gameOverCanvas: {fileID: 1526008668}
-  distanceUI: {fileID: 223392387}
-  scoreUI: {fileID: 72816196}
-  lifeUI: {fileID: 1469970815}
   platformSpeed: 0
 --- !u!4 &489903387
 Transform:
@@ -4440,9 +4443,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 14
   rigidBody: {fileID: 1856452841}
   animator: {fileID: 1677027037}
+  jumpForce: 14
 --- !u!114 &1856452844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4513,7 +4516,7 @@ Animator:
   m_GameObject: {fileID: 1856452837}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8f27845f42849724a9179a216e91c48f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 44747cf7072c26945bd52a43932f7dfb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
