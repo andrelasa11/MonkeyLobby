@@ -236,7 +236,7 @@ MonoBehaviour:
   - {fileID: 799356898394400860}
   - {fileID: 824616423643688596}
   - {fileID: 1868749046664848764}
-  coinPrefab: {fileID: 679335815464290077}
+  coinPrefab: {fileID: 2131678401646347507, guid: 2042c90630eeb5949bcf4ee7ac4b7c32, type: 3}
 --- !u!114 &8582421166735992245
 MonoBehaviour:
   m_ObjectHideFlags: 0
