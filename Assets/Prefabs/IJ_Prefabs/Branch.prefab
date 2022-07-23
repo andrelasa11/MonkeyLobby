@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 7501814068772546541}
   - component: {fileID: -1181950526844590903}
   - component: {fileID: 1133140313814812399}
-  - component: {fileID: 7542399025470714938}
+  - component: {fileID: 4715184895501368332}
   - component: {fileID: 8582421166735992245}
   - component: {fileID: 1328370004981859631}
   m_Layer: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: -1181950526844590903}
---- !u!114 &7542399025470714938
+--- !u!114 &4715184895501368332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5734326763010457818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8274d7eefd69844186a8eebda86003b, type: 3}
+  m_Script: {fileID: 11500000, guid: e42313809456a9a40b10ca3056afa20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pickupChance: 0.3
@@ -236,7 +236,7 @@ MonoBehaviour:
   - {fileID: 799356898394400860}
   - {fileID: 824616423643688596}
   - {fileID: 1868749046664848764}
-  coinPrefab: {fileID: 2131678401646347507, guid: 2042c90630eeb5949bcf4ee7ac4b7c32, type: 3}
+  coinPrefab: {fileID: 679335815464290077}
 --- !u!114 &8582421166735992245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,10 +252,16 @@ MonoBehaviour:
   playerActions:
     m_PersistentCalls:
       m_Calls: []
+  playerHeadActions:
+    m_PersistentCalls:
+      m_Calls: []
   dangerActions:
     m_PersistentCalls:
       m_Calls: []
   platformActions:
+    m_PersistentCalls:
+      m_Calls: []
+  petFoodActions:
     m_PersistentCalls:
       m_Calls: []
   coinActions:
