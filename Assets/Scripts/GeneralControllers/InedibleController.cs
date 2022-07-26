@@ -27,14 +27,8 @@ public class InedibleController : MonoBehaviour
 
     }
 
-    public void DecreaseScore()
-    {
-        GCFoodDrop.Instance.SetScore(scoreToDecrease * -1);
-    }
+    public void DecreaseScore() => GCFoodDrop.Instance.SetScore(scoreToDecrease * -1);
 
-    public void DecreaseLife()
-    {
-        GCFoodDrop.Instance.SetPlayerLives(-1);
-    }
+    public void DecreaseLife() => GCFoodDrop.Instance.SetPlayerLives(-1);
 
 }

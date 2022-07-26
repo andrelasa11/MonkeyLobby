@@ -18,26 +18,13 @@ public class UIController : MonoBehaviour
     [SerializeField] private Text fdRecordValue;
     [SerializeField] private Text hdRecordValue;
 
-    public void SetDirt(int value)
-    {
-        dirtSlider.value = value;
-    }
+    public void SetDirt(int value) => dirtSlider.value = value;
 
-    public void SetHappiness(int value)
-    {
-        happinessSlider.value = value;
-    }
+    public void SetHappiness(int value) => happinessSlider.value = value;
 
-    public void SetEnergy(int value)
-    {
-        energySlider.value = value;
-    }
+    public void SetEnergy(int value) => energySlider.value = value;
 
-    public void SetFood(int value)
-    {
-        foodSlider.value = value;      
-        
-    }
+    public void SetFood(int value) => foodSlider.value = value;
 
     public void SetRecords()
     {
@@ -48,42 +35,25 @@ public class UIController : MonoBehaviour
 
     public void SetLampFilter()
     {
-        if(lampFilter.isActiveAndEnabled)
-        {
-            lampFilter.gameObject.SetActive(false);
-        }
-        else
-        {
-            lampFilter.gameObject.SetActive(true);
-        }
+        if (lampFilter.isActiveAndEnabled) lampFilter.gameObject.SetActive(false);
+
+        else lampFilter.gameObject.SetActive(true);
     }
 
     public void OffLampFilter()
     {
-        if (lampFilter.isActiveAndEnabled)
-        {
-            lampFilter.gameObject.SetActive(false);
-        }        
+        if (lampFilter.isActiveAndEnabled) lampFilter.gameObject.SetActive(false);
     }
 
     public void SetGameLobby()
     {
-        if (gameLobby.isActiveAndEnabled)
-        {
-            gameLobby.gameObject.SetActive(false);
-        }
-        else
-        {
-            gameLobby.gameObject.SetActive(true);
-        }
+        if (gameLobby.isActiveAndEnabled) gameLobby.gameObject.SetActive(false);
+
+        else gameLobby.gameObject.SetActive(true);
     }
 
     public void OffGameLobby()
     {
-        if (gameLobby.isActiveAndEnabled)
-        {
-            gameLobby.gameObject.SetActive(false);
-        }
+        if (gameLobby.isActiveAndEnabled) gameLobby.gameObject.SetActive(false);
     }
-
 }

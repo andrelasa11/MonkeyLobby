@@ -46,6 +46,5 @@ public class OnTriggerEnterDo : MonoBehaviour
         {
             generalActions.Invoke();
         }
-
     }
 }

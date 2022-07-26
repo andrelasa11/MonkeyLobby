@@ -12,13 +12,12 @@ public class InputManager : MonoBehaviour
     public static Vector2 worldMousePosition;
 
     #region "Awake/Start/Update"
-    private void Awake()
-    {
-        mainCamera = Camera.main;
-    }
+
+    private void Awake() => mainCamera = Camera.main;
+
     #endregion
 
-    #region PlayerInput
+    #region "PlayerInput"
     public void OnLeftMouseClick(InputAction.CallbackContext context)
     {
         if (context.started)

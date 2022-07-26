@@ -41,10 +41,8 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance != null)
-        {
-            Destroy(gameObject);
-        }
+        if(instance != null) Destroy(gameObject);
+
         else
         {
             instance = this;
@@ -53,11 +51,10 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    private void PlaySound(AudioClip clip)
-    {
-        audioSource.PlayOneShot(clip);
-    }
+    //main method
+    private void PlaySound(AudioClip clip) => audioSource.PlayOneShot(clip);
 
+    //main method for background sound
     private void SetBGSound(AudioClip clip)
     {
         audioSource.clip = clip;
@@ -66,15 +63,11 @@ public class AudioManager : MonoBehaviour
 
     #region "Lobby Methods"
 
-    public void PlaySelect()
-    {
-        PlaySound(select);
-    }
+    public void PlaySelect() => PlaySound(select);
 
-    public void PlayShowering()
-    {
-        PlaySound(showering);
-    }
+    public void PlayShowering() => PlaySound(showering);
+
+    public void PlayBgLobby() => SetBGSound(bgLobby);
 
     public void PlayDacingSong()
     {
@@ -89,73 +82,41 @@ public class AudioManager : MonoBehaviour
             isDancing = false;
         }
         
-    }
-
-    public void PlayBgLobby()
-    {
-        SetBGSound(bgLobby);
-    }
+    }    
 
     #endregion
 
     #region "Infinity Jump Methods"
 
-    public void PlayJump()
-    {
-        PlaySound(jumping);
-    }
+    public void PlayJump() => PlaySound(jumping);
 
     #endregion
 
     #region "Food Drop Methods"
 
-    public void PlayEating()
-    {
-        PlaySound(eating);
-    }
+    public void PlayEating() => PlaySound(eating);
 
-    public void PlayFailure()
-    {
-        PlaySound(failure);
-    }
+    public void PlayFailure() => PlaySound(failure);
 
-    public void PlayBgInfinityJump()
-    {
-        SetBGSound(bgInfinityJump);
-    }
+    public void PlayBgInfinityJump() => SetBGSound(bgInfinityJump);
 
     #endregion
 
     #region "Hill Drive Methods"
 
-    public void PlayFuel()
-    {
-        PlaySound(fuel);
-    }
+    public void PlayFuel() => PlaySound(fuel);
 
-    public void PlayBgHillDrive()
-    {
-        SetBGSound(bgHillDrive);
-    }
+    public void PlayBgHillDrive() => SetBGSound(bgHillDrive);
 
     #endregion
 
     #region "Generals"
 
-    public void PlayCoin()
-    {
-        PlaySound(coin);
-    }
+    public void PlayCoin() => PlaySound(coin);
 
-    public void PlayDeath()
-    {
-        PlaySound(death);
-    }
+    public void PlayDeath() => PlaySound(death);
 
-    public void PlayBgFoodDrop()
-    {
-        SetBGSound(bgFoodDropSound);
-    }
+    public void PlayBgFoodDrop() => SetBGSound(bgFoodDropSound);
 
     #endregion
 }

@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class GameController : MonoBehaviour
@@ -41,8 +39,7 @@ public abstract class GameController : MonoBehaviour
     }
 
     public virtual void OnGameOver()
-    {
-        Debug.Log("GameOver!");        
+    {   
         Time.timeScale = 0;
 
         DateTime now = DateTime.Now;

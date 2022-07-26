@@ -7,7 +7,7 @@ public class PickUpController : MonoBehaviour
     [Range(0, 1)] public float pickupChance;
 
     [Header("Dependencies")]
-    [SerializeField] private List<Transform> coinsPositions;
+    [SerializeField] private List<Transform> spawnPositions;
     [SerializeField] private GameObject coinPrefab;
 
     //private
@@ -15,14 +15,11 @@ public class PickUpController : MonoBehaviour
     private Quaternion spawnRotation = new Quaternion(0, 0, 0, 0);
 
     // Start is called before the first frame update
-    void Start()
-    {
-        CoinDice();
-    }
+    void Start() => CoinDice();
 
     public void CoinDice()
     {
-        foreach (var coin in coinsPositions)
+        foreach (Transform coin in spawnPositions)
         {
             randomPickUp = Random.Range(0, 1f);
 

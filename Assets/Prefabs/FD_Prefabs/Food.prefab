@@ -93,11 +93,11 @@ GameObject:
   - component: {fileID: 8732140000074593104}
   - component: {fileID: 3697549792084380875}
   - component: {fileID: 4459357982499511414}
-  - component: {fileID: 6617843585310352173}
   - component: {fileID: 2399947730929000634}
   - component: {fileID: 5080606781641331556}
   - component: {fileID: 7684338288339470807}
   - component: {fileID: 4097397870386268996}
+  - component: {fileID: 3148227278736960689}
   m_Layer: 0
   m_Name: Food
   m_TagString: Untagged
@@ -157,19 +157,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.09182215}
   serializedVersion: 2
   m_Radius: 0.19742692
---- !u!114 &6617843585310352173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6097608311747446993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18befcb4ef7fc846b88fefacc4cc54a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidBody: {fileID: 3697549792084380875}
 --- !u!114 &2399947730929000634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,10 +196,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerHeadActions:
+    m_PersistentCalls:
+      m_Calls: []
   dangerActions:
     m_PersistentCalls:
       m_Calls: []
   platformActions:
+    m_PersistentCalls:
+      m_Calls: []
+  petFoodActions:
     m_PersistentCalls:
       m_Calls: []
   coinActions:
@@ -296,3 +289,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedRotation: 150
+--- !u!114 &3148227278736960689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6097608311747446993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d017553a3f8ca0042b1cd6d4a84e5c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 3697549792084380875}
+  gameType: 1

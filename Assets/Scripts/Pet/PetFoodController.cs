@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,11 +22,5 @@ public class PetFoodController : MonoBehaviour
         mouseJoint = GameObject.Find("MouseJoint");
         fixedJoint2D.connectedBody = mouseJoint.GetComponent<Rigidbody2D>();
         characterGrabber.target = mouseJoint.transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

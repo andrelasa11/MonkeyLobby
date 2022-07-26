@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class FoodController : MonoBehaviour
 {
-
     [Header("Configuration")]
     public int scorePoints;
 
@@ -24,17 +23,10 @@ public class FoodController : MonoBehaviour
             spriteRenderer.sprite = foodConfigs[foodConfigIndex].sprite; // Instanciamento do SO;
             scorePoints = foodConfigs[foodConfigIndex].scorePoints; // Instanciamento do SO;
         }
-
     }
 
-    public void AddScore()
-    {
-        GCFoodDrop.Instance.SetScore(scorePoints);
-    }
+    public void AddScore() => GCFoodDrop.Instance.SetScore(scorePoints);
 
-    public void DecreaseLife()
-    {
-        GCFoodDrop.Instance.SetPlayerLives(-1);
-    }
+    public void DecreaseLife() => GCFoodDrop.Instance.SetPlayerLives(-1);
 
 }

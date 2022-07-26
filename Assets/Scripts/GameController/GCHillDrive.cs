@@ -25,6 +25,7 @@ public class GCHillDrive : GameController
     [Header("Exclusive UI")]
     public Image fuelUI;
 
+    [Header("Grounds")]
     [SerializeField] private List<GameObject> startGrounds;
 
     //private
@@ -65,11 +66,6 @@ public class GCHillDrive : GameController
 
     #region "My Methods"
 
-    public override void SetScore(int scorePoints)
-    {
-        base.SetScore(scorePoints);
-    }
-
     public void SetFuel(float value)
     {
         fuel += value;
@@ -98,6 +94,12 @@ public class GCHillDrive : GameController
         StartCoroutine(GameOverCoroutine());
     }
 
+    public void GenerateStartGround()
+    {
+        int startGroundIndex = UnityEngine.Random.Range(0, startGrounds.Count);
+        Instantiate(startGrounds[startGroundIndex], startGenerationPosition, Quaternion.identity);
+    }
+
     #endregion
 
     #region "Coroutines"
@@ -109,13 +111,4 @@ public class GCHillDrive : GameController
     }
 
     #endregion
-
-    public void GenerateStartGround()
-    {        
-        int startGroundIndex = UnityEngine.Random.Range(0, startGrounds.Count);
-        Debug.Log("StartGroundIndex: " + startGroundIndex + " StartGrounds.Count: " + startGrounds.Count);
-        Debug.Log(startGroundIndex);
-        Instantiate(startGrounds[startGroundIndex], startGenerationPosition, Quaternion.identity);
-    }
-
 }

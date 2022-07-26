@@ -14,10 +14,7 @@ public class CharacterGrabber : MonoBehaviour, IDraggable
     private Vector3 velocity = Vector3.zero;
     private float initialDistance;
 
-    private void Awake()
-    {
-        mainCamera = Camera.main;
-    }
+    private void Awake() => mainCamera = Camera.main;
 
     public void OnDragStart()
     {

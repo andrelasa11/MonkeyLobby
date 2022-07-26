@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PCInfinityJump : PlayerController
 {
@@ -33,11 +32,6 @@ public class PCInfinityJump : PlayerController
 
     }
 
-    public override void OnMovement(InputAction.CallbackContext value)
-    {
-        base.OnMovement(value);
-    }
-
     public void DoJump()
     {
         if(rigidBody.velocity.y < -1.5f)
@@ -53,10 +47,4 @@ public class PCInfinityJump : PlayerController
         GCInfinityJump.Instance.SetPlayerLives(-1);
         AudioManager.Instance.PlayDeath();
     }
-
-    public override void Flip()
-    {
-        base.Flip();
-    }
-
 }

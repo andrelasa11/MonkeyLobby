@@ -9,14 +9,11 @@ public class GrabbableCharacter : MonoBehaviour
     [SerializeField] private Animator animator;
 
     //private
-    private Rigidbody2D rb;
+    private Rigidbody2D rigidBody;
     private Vector3 initialPosition;
     private Vector3 initialRotation;
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    private void Awake() => rigidBody = GetComponent<Rigidbody2D>();
 
     private void Start()
     {
@@ -26,7 +23,7 @@ public class GrabbableCharacter : MonoBehaviour
 
     public void Grabble(Vector2 anchor)
     {
-        rb.isKinematic = false;
+        rigidBody.isKinematic = false;
         springJoint.anchor = anchor;
 
         if (springJoint != null)
@@ -65,8 +62,8 @@ public class GrabbableCharacter : MonoBehaviour
         transform.position = initialPosition;
         transform.eulerAngles = initialRotation;
 
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = 0;
-        rb.isKinematic = true;
+        rigidBody.velocity = Vector3.zero;
+        rigidBody.angularVelocity = 0;
+        rigidBody.isKinematic = true;
     }
 }

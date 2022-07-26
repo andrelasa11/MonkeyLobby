@@ -14,11 +14,7 @@ public abstract class PlayerController : MonoBehaviour
     protected bool isFacingRight = true;
     protected float horizontalMove;
 
-    
-    public virtual void OnMovement(InputAction.CallbackContext value)
-    {
-        horizontalMove = value.ReadValue<Vector2>().x;
-    }
+    public virtual void OnMovement(InputAction.CallbackContext value) => horizontalMove = value.ReadValue<Vector2>().x;
 
     public virtual void Flip()
     {

@@ -1,9 +1,7 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PCFoodDrop : PlayerController
 {   
-
     private void FixedUpdate()
     {
         rigidBody.velocity = new Vector2(horizontalMove * speed, rigidBody.velocity.y);
@@ -23,15 +21,5 @@ public class PCFoodDrop : PlayerController
         {
             Flip();
         }
-    }
-
-    public override void OnMovement(InputAction.CallbackContext value)
-    {
-        base.OnMovement(value);
-    }
-
-    public override void Flip()
-    {
-        base.Flip();
     }
 }

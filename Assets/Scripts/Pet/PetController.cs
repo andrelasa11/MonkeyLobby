@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using UnityEngine.UI;
 
 public class PetController : MonoBehaviour
 {
@@ -141,9 +140,6 @@ public class PetController : MonoBehaviour
         uiController.SetDirt(dirt);
 
         GameManager.Instance.SetDirtValue(dirt, lastTimeDirt);
-
-        Debug.Log(lastTimeDirt.ToString());
-
     }
 
     public void SetHappiness(int value)

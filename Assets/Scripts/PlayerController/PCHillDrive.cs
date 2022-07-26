@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PCHillDrive : PlayerController
@@ -19,17 +18,12 @@ public class PCHillDrive : PlayerController
     [Header("UI")]
     [SerializeField] private Image fuelUI;
 
-    private void Start()
-    {
-        AudioManager.Instance.PlayBgHillDrive();
-    }
+    private void Start() => AudioManager.Instance.PlayBgHillDrive();
 
     void FixedUpdate()
     {
-
         if (GCHillDrive.Instance.fuel > 0)
         {
-
             if (horizontalMove == 0f)
             {
                 backWheel.useMotor = false;
@@ -62,23 +56,10 @@ public class PCHillDrive : PlayerController
             audioSource.volume = 0.2f;
         }
 
-        if (rigidBody.velocity.y < 0)
-        {
-            animator.SetBool("IsFalling", true);
-        }
+        if (rigidBody.velocity.y < 0) animator.SetBool("IsFalling", true);
         else animator.SetBool("IsFalling", false);
 
     }
 
-    public override void OnMovement(InputAction.CallbackContext value)
-    {
-        base.OnMovement(value);
-    }
-
-    public void DoInstaGameOver()
-    {
-        GCHillDrive.Instance.OnGameOver();
-    }
-   
-    
+    public void DoInstaGameOver() => GCHillDrive.Instance.OnGameOver();
 }

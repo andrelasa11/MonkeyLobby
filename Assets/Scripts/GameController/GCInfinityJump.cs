@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -71,12 +70,6 @@ public class GCInfinityJump : GameController
 
     #region "My Methods"
 
-    public override void SetScore(int scorePoints)
-    {
-        base.SetScore(scorePoints);
-    }
-
-
     public override void SetPlayerLives(int value)
     {
         playerLife += value;
@@ -105,8 +98,6 @@ public class GCInfinityJump : GameController
 
         base.OnGameOver();
     }
-
-
 
     #endregion
 

@@ -5,8 +5,5 @@ public class FuelController : MonoBehaviour
     [Header("Configuration")]
     public float fuelToAdd;
 
-    public void AddFuel()
-    {
-        GCHillDrive.Instance.SetFuel(fuelToAdd);
-    }
+    public void AddFuel() => GCHillDrive.Instance.SetFuel(fuelToAdd);
 }

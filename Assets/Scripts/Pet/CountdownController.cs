@@ -4,14 +4,13 @@ using UnityEngine.UI;
 
 public class CountdownController : MonoBehaviour
 {
+    [Header("Dependencies")]
     [SerializeField] private Text countdownText;
-
     [SerializeField] private GameObject lobby3;
-
     [SerializeField] private GameObject lobby1;
     
+    //private
     private int countdown = 6;
-
     private bool countdownOn = true;
 
     public void StartCountdown()
@@ -28,33 +27,22 @@ public class CountdownController : MonoBehaviour
         lobby1.SetActive(true);
     }
 
-    public void PlayClickSound()
-    {
-        AudioManager.Instance.PlaySelect();
-    }
+    public void PlayClickSound() => AudioManager.Instance.PlaySelect();
 
     public IEnumerator CountdownCoroutine()
     {
-        Debug.Log("Iniciou a corrotina");
-
         while (countdownOn)
         {
-            Debug.Log("Entrou no while");
-
             countdown--;
 
-            countdownText.text = countdown.ToString();
-                        
+            countdownText.text = countdown.ToString();                        
 
             if (countdown <= 0)
             {
                 ExitCountdown();
-
             }
 
             yield return new WaitForSeconds(1);
-
         }
-
     }
 }

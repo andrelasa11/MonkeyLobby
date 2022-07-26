@@ -91,13 +91,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7243458409178754657}
-  - component: {fileID: -6401149244657171422}
   - component: {fileID: 7953177266814209776}
   - component: {fileID: 5832078500704815865}
   - component: {fileID: 5433346111670472671}
   - component: {fileID: 8067267119214385257}
   - component: {fileID: 7384549103805268439}
   - component: {fileID: 5761715397977764734}
+  - component: {fileID: 8738876145002636922}
   m_Layer: 0
   m_Name: Inedible Object
   m_TagString: Untagged
@@ -120,19 +120,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6401149244657171422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132557333219888429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18befcb4ef7fc846b88fefacc4cc54a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidBody: {fileID: 7953177266814209776}
 --- !u!50 &7953177266814209776
 Rigidbody2D:
   serializedVersion: 4
@@ -250,10 +237,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerHeadActions:
+    m_PersistentCalls:
+      m_Calls: []
   dangerActions:
     m_PersistentCalls:
       m_Calls: []
   platformActions:
+    m_PersistentCalls:
+      m_Calls: []
+  petFoodActions:
     m_PersistentCalls:
       m_Calls: []
   coinActions:
@@ -303,3 +296,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedRotation: 150
+--- !u!114 &8738876145002636922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132557333219888429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d017553a3f8ca0042b1cd6d4a84e5c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 7953177266814209776}
+  gameType: 1

@@ -63,12 +63,6 @@ public class GCFoodDrop : GameController
         }
     }
 
-    public override void SetPlayerLives(int value)
-    {
-        base.SetPlayerLives(value);
-    }
-
-
     public override void OnGameOver()
     {
         AudioManager.Instance.PlayDeath();

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TimingController : MonoBehaviour
 {
+    [Header("Configuration")]
     public float gameHourTimer;
-
     public float hourLength;
 
     private void Update()

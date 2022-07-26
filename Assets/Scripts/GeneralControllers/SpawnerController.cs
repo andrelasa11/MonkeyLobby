@@ -24,10 +24,7 @@ public class SpawnerController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(SpawnCoroutine());
-    }
+    void Start() => StartCoroutine(SpawnCoroutine());
 
     #region "Coroutines"
 
@@ -37,7 +34,6 @@ public class SpawnerController : MonoBehaviour
 
         while (true)
         {
-
             objIndex = Random.Range(0, objectsForSpawn.Count);
             objPosition.x = Random.Range(xMinPosition, xMaxPosition);
             objPosition.y = yPosition;

@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: -1181950526844590903}
+  gameType: 0
 --- !u!114 &4715184895501368332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupChance: 0.3
-  coinsPositions:
+  spawnPositions:
   - {fileID: 799356898394400860}
   - {fileID: 824616423643688596}
   - {fileID: 1868749046664848764}

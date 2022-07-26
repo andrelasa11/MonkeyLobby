@@ -3,8 +3,8 @@ using UnityEngine;
 public class BackgroundCollor : MonoBehaviour
 {
 
-    public Camera cameraUI;
-    public Color color;
+    [SerializeField] private Camera cameraUI;
+    [SerializeField] private Color color;
   
     public void ChangeBackgroundCollor(string hexadecimalColorCode)
     {

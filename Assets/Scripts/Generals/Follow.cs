@@ -6,20 +6,11 @@ public class Follow : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private Transform target;
 
-        //private
+    //private
     private Vector3 offset;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        offset = transform.position - target.position;
-    }
+    void Start() => offset = transform.position - target.position;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        transform.position = target.position + offset;
-    }
-    
+    void Update() => transform.position = target.position + offset;
+
 }
