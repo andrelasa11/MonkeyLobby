@@ -1,11 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GCHillDrive : GameController
 {
-
     #region "Singleton"
 
     private static GCHillDrive instance;
@@ -25,12 +23,8 @@ public class GCHillDrive : GameController
     [Header("Exclusive UI")]
     public Image fuelUI;
 
-    [Header("Grounds")]
-    [SerializeField] private List<GameObject> startGrounds;
-
-    //private
+    //hidden
     private Vector3 distanceReferencePoint;
-    private Vector3 startGenerationPosition;
 
     #region "Awake/Start/Update"
 
@@ -44,15 +38,11 @@ public class GCHillDrive : GameController
 
     private void Start()
     {
-        startGenerationPosition = new Vector3(this.transform.position.x, -7.5f, this.transform.position.z);
         mainCanvas.SetActive(true);
         gameOverCanvas.SetActive(false);
         distanceReferencePoint = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         scoreUI.SetScoreValueText(score);
         distanceUI.SetValueText(distance);
-
-        GenerateStartGround();
-
         Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
@@ -92,12 +82,6 @@ public class GCHillDrive : GameController
     public void NoFuelGameOver()
     {
         StartCoroutine(GameOverCoroutine());
-    }
-
-    public void GenerateStartGround()
-    {
-        int startGroundIndex = UnityEngine.Random.Range(0, startGrounds.Count);
-        Instantiate(startGrounds[startGroundIndex], startGenerationPosition, Quaternion.identity);
     }
 
     #endregion

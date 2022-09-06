@@ -1,14 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundController : MonoBehaviour
-{    
-    [Header("Dependencies")]
-    [SerializeField] private List<GameObject> grounds;   
-
-    //private
+{
+    //hidden
     private Vector3 generationPosition;
-    private int groundIndex;
     private bool isGenerating = true;
 
     private void Start()
@@ -20,10 +15,8 @@ public class GroundController : MonoBehaviour
     {
         if(isGenerating)
         {
-            groundIndex = Random.Range(0, grounds.Count);
-            Instantiate(grounds[groundIndex], generationPosition, Quaternion.identity);
+            GroundSpawnerController.Instance.GenerateGround(generationPosition);
             isGenerating = false;
         }        
-    }
-    
+    }    
 }

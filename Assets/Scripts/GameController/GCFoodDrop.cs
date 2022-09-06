@@ -22,13 +22,18 @@ public class GCFoodDrop : GameController
 
     [Header("Cadence Configuration")]
     [SerializeField] private float cadenceToDecrease;
+    [SerializeField] private float onFireWaitTime;
+    private float onFireCountdown;
 
     [Header("Exclusive Dependencies")]
     [SerializeField] private SpawnerController spawnerController;
     public AudioClip foodDropMusic;
+    [SerializeField] private PepperUI pepperUI;
+    [SerializeField] private GameObject pepperGO;
 
     // Food Properties
     [HideInInspector] public float foodSpeed;
+    private bool isOnFire = false;
 
     private void Awake()
     {
@@ -48,14 +53,26 @@ public class GCFoodDrop : GameController
         lifeUI.SetValueText(playerLife);
 
         AudioManager.Instance.PlayBgFoodDrop();
+
+        onFireCountdown = onFireWaitTime;
+
+        pepperUI.SetValueText(onFireCountdown);
     }
 
     #region "My Methods"
 
     public override void SetScore(int scorePoints)
     {
-        score += scorePoints;        
-        scoreUI.SetScoreValueText(score);
+        if(isOnFire == false)
+        {
+            score += scorePoints;
+            scoreUI.SetScoreValueText(score);
+        }
+        if(isOnFire == true)
+        {
+            score += scorePoints * 2;
+            scoreUI.SetScoreValueText(score);
+        }      
 
         if(scorePoints > 0)
         {
@@ -73,9 +90,24 @@ public class GCFoodDrop : GameController
             GameManager.Instance.SetFoodDropRecord(totalScore);
         }
 
-        base.OnGameOver();
-        
+        base.OnGameOver();        
     }
+
+    public void SetOnFire()
+    {
+        if(isOnFire == false)
+        {
+            onFireCountdown = onFireWaitTime;
+            pepperUI.SetValueText(onFireCountdown);
+            StartCoroutine(nameof(OnFireCoroutine));
+        }
+        else
+        {
+            onFireCountdown = onFireWaitTime;
+            pepperUI.SetValueText(onFireCountdown);
+        }
+
+    } 
 
     #endregion
 
@@ -94,6 +126,23 @@ public class GCFoodDrop : GameController
 
         foodSpeed = thirdStageSpeed;
         spawnerController.cadence -= cadenceToDecrease;
+    }
+
+    private IEnumerator OnFireCoroutine()
+    {
+        isOnFire = true;
+        pepperGO.SetActive(true);
+
+        while (onFireCountdown > 0)
+        {
+            onFireCountdown -= 0.5f;
+            Debug.Log(onFireCountdown);
+            yield return new WaitForSeconds(0.5f);
+            pepperUI.SetValueText(onFireCountdown);
+        }
+
+        isOnFire = false;
+        pepperGO.SetActive(false);
     }
 
     #endregion
